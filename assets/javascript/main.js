@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    var displayButtons = 
+    var displayButton = 
     ["Umbrella Corporation", "Milla Jovovich", "Clint Culpepper","Resident Evil"];
 
     function displayImg() {
@@ -21,7 +21,7 @@ $(document).ready(function() {
 
                 var image = $("<img>");
                 image.attr("src", response.data[i].images.original_still.url);
-                image.attr("data-still", response.data[i].images.original_still.url);                
+                image.attr("data-still", response.data[i] .images.original_still.url);                
                 image.attr("data-animate", response.data[i].images.original.url);                
                 image.attr("data-state", "still");                
                 image.attr("class", "gif");
@@ -39,13 +39,13 @@ $(document).ready(function() {
 
     function btnRender() {
         $("#display-buttons").empty();
-        for (var j = 0; j < displayButtons.length; j++) {
+        for (var j = 0; j < displayButton.length; j++) {
 
             var newBtn = $("<button>")
             newBtn.attr("class", "btn btn-default");
             newBtn.attr("id", "input");
-            newBtn.attr("data-name", displayButtons[j]);
-            newBtn.text(displayButtons[j]);
+            newBtn.attr("data-name", displayButton[j]);
+            newBtn.text(displayButton[j]);
             $("#display-buttons").append(newBtn);
         }
     }
@@ -71,7 +71,7 @@ $(document).ready(function() {
 
         var input = $("#user-input").val().trim();
         form.reset();
-        displayButtons.push(input);
+        displayButton.push(input);
 
         return false;
     })
